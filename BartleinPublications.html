@@ -80,6 +80,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -94,7 +97,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -114,6 +116,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -135,18 +174,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -194,7 +292,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>Bartlein, P.J., and S.L. Shafer, submitted, Paleo calendar-effect adjustments in time-slice and transient climate-model simulations (PaleoCalAdjust v1.0): impact and strategies for data analysis. Submitted to Geoscientific Model Development. <a href="https://zenodo.org/record/1478825#.W-YZfafMx26" class="uri">https://zenodo.org/record/1478825#.W-YZfafMx26</a></p>
+<p>Bartlein, P.J., and S.L. Shafer, 2018, Paleo calendar-effect adjustments in time-slice and transient climate-model simulations (PaleoCalAdjust v1.0): impact and strategies for data analysis. <em>Geoscientific Model Development Discussions</em>, 1-36. <a href="https://doi.org/10.5194/gmd-2018-283" class="uri">https://doi.org/10.5194/gmd-2018-283</a></p>
 <p>Harrison, S. P., Bartlein, P. J., Brovkin, V., Houweling, S., Kloster, S., &amp; Prentice, I. C. (2018). The biomass burning contribution to climate–carbon-cycle feedback. <em>Earth Syst. Dynam.,</em> 9(2), 663-677. <a href="https://doi.org/10.5194/esd-9-663-2018" class="uri">https://doi.org/10.5194/esd-9-663-2018</a></p>
 <p>Hostetler, S.W., P.J. Bartlein and J.R. Alder, 2018, Atmospheric and surface climate associated with 1986–2013 wildfires in North America. <em>Journal of Geophysical Research: Biogeosciences,</em> 123(5), 1588-1609. <a href="https://doi.org/10.1029/2017JG004195" class="uri">https://doi.org/10.1029/2017JG004195</a></p>
 <p>Marsicek, J., B.N. Shuman, P.J. Bartlein, S.L. Shafer &amp; S. Brewer, 2018, Reconciling divergent trends and millennial variations in Holocene temperatures. <em>Nature</em> 554:92. <a href="https://dx.doi.org/10.1038/nature25464" class="uri">https://dx.doi.org/10.1038/nature25464</a> News &amp;Views: <a href="http://dx.doi.org/10.1038/d41586-018-00943-4" class="uri">http://dx.doi.org/10.1038/d41586-018-00943-4</a></p>
